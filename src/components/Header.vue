@@ -22,8 +22,15 @@
 				</div>
 
 				<nav>
-					<router-link to="/about">Акции</router-link>
-					<router-link to="/about">Доставка и оплата</router-link>
+					<router-link to="/about">
+						<img src="@/assets/img/icons/percentage.svg" alt="">
+						<span>Акции</span>
+					</router-link>
+
+					<router-link to="/about">
+						<img src="@/assets/img/icons/delivery-man.svg" alt="">
+						<span>Доставка и оплата</span>
+					</router-link>
 				</nav>
 			</div>
 		</div>
@@ -35,6 +42,10 @@
 					<a href="">Компьютеры</a>
 					<a href="">Аудио</a>
 					<a href="">Чехлы</a>
+				</div>
+
+				<div class="mini-cart">
+					<p>1450 руб.</p>
 				</div>
 			</div>
 		</div>
@@ -54,6 +65,7 @@
 	header{
 		// border: 1px solid red;
 		margin-bottom: 30px;
+		box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
 
 		.top, .bottom{
 			.top-wrapper, .bottom-wrapper{
@@ -106,9 +118,23 @@
 
 				nav{
 					margin-left: auto;
+					display: flex;
+					align-items: center;
 
 					a{
 						margin-left: 25px;
+						
+						display: flex;
+						align-items: center;
+
+						img{
+							height: 18px;
+							margin-right: 5px;
+						}
+
+						span{
+							font-size: 15px;
+						}
 					}
 				}
 			}
@@ -121,6 +147,7 @@
 			.bottom-wrapper{
 				padding-top: 8px;
 				padding-bottom: 8px;
+				position: relative;
 
 				.catalog-navigation{
 					display: flex;
@@ -140,6 +167,7 @@
 						flex-direction: column;
 						align-items: center;
 
+
 						//border-bottom: 1px solid transparent;
 						transition: border-color .2s;
 						
@@ -157,8 +185,25 @@
 						}
 					}
 				}
+
+				.mini-cart{
+					border: 1px solid red;
+					width: 100px;
+					height: 100%;
+
+					position: absolute;
+					right: 15px;
+					top: 0;
+
+					display: flex;
+					align-items: center;
+					justify-content: flex-end;
+					p{
+						font-size: 13px;
+						color: #fff;
+					}
+				}
 			}
-			
 		}
 	}
 </style>

@@ -45,7 +45,10 @@
 				</div>
 
 				<div class="mini-cart">
-					<p>1450 руб.</p>
+					<router-link to="/cart">
+						<img src="@/assets/img/icons/white-box.svg" alt="">
+						<span>1450 <span>₽</span></span>
+					</router-link>
 				</div>
 			</div>
 		</div>
@@ -187,7 +190,7 @@
 				}
 
 				.mini-cart{
-					border: 1px solid red;
+					//border: 1px solid red;
 					width: 100px;
 					height: 100%;
 
@@ -198,9 +201,25 @@
 					display: flex;
 					align-items: center;
 					justify-content: flex-end;
-					p{
-						font-size: 13px;
-						color: #fff;
+
+					a{
+						display: flex;
+						align-items: center;
+
+						img{
+							height: 20px;
+							margin-right: 5px;
+						}
+
+						span{
+							font-size: 13px;
+							color: #fff;
+
+							span{
+								font-size: 12px;
+							}
+						}
+						
 					}
 				}
 			}

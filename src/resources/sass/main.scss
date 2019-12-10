@@ -44,6 +44,16 @@ footer{
 	flex: 0 0 auto;
 }
 
+
+.heading-page{
+	margin-bottom: 20px;
+	h1, h2, h3{
+		font-weight: normal;
+		margin: 0;
+		font-size: 34px;
+	}
+}
+
 .index{
 	.index-slider{
 		//border: 1px solid red;
@@ -98,6 +108,34 @@ footer{
 	
 	.VueCarousel-slide{
 		padding: 5px 10px;
+	}
+
+	.VueCarousel-pagination{
+		margin-top: 20px;
+		z-index: 2;
+
+		.VueCarousel-dot-container{		
+			margin-top: 0px !important;
+
+			.VueCarousel-dot{
+				padding: 0 !important;
+				margin-top: 0 !important;
+				margin-right: 8px;
+				outline: none !important;
+				height: 10px !important;
+				width: 10px !important;
+
+				background: rgba(#000, .2) !important;
+
+				&:last-child{
+					margin-right: 0;
+				}
+
+				&.VueCarousel-dot--active{
+					background: rgba($accent, .8) !important;
+				}
+			}
+		}
 	}
 }
 

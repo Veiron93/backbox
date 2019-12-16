@@ -205,14 +205,15 @@
 
 						button, input{
 							outline: none;
-							border: 1px solid #808080;
+							border: 1px solid #d4d4d4;
 						}
 
 						button{
 							height: 30px;
 							width: 30px;
-							font-size: 18px;
+							font-size: 19px;
 							color: #808080;
+							background: none;
 							cursor: pointer;
 
 							&[data-type="minus"]{
@@ -227,7 +228,7 @@
 						}
 
 						input{
-							width: 40px;
+							width: 30px;
 							height: 30px;
 							-moz-appearance: textfield;
 							text-align: center;
@@ -305,19 +306,48 @@
 						&:last-child{
 							margin-bottom: 0;
 						}
+
 						//border: 1px solid red;
 
 						label{
 							display: flex;
+							cursor: pointer;
 							
 							input{
-								margin-right: 8px;
 								margin-top: 1px;
+								margin-right: 8px;
+
+								border: 1px solid #bebdbd;
+								width: 14px;
+								height: 14px;
+
+								flex: none;
+								border-radius: 50%;
+
+								appearance: none;
+								outline: none;
+								cursor: pointer;
+
+								&:before{
+									content: "";
+									display: block;
+									height: 10px;
+									width: 10px;
+									border-radius: 50%;
+									margin-top: 1px;
+									margin-left: 1px;
+								}
+
+								&:checked{
+									&:before{
+										background: $accent;
+									}
+								}
 							}
 
 							span{
 								font-size: 13px;
-								line-height: 1.40em;
+								line-height: 1.35em;
 							}
 						}
 					}
@@ -365,6 +395,13 @@
 						margin-top: 4px;
 						margin-left: -30px;
 						cursor: pointer;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+
+						img{
+							height: 10px;
+						}
 					}
 				}	
 			}
@@ -405,15 +442,16 @@
 			.btn-buy{
 				text-transform: uppercase;
 				border-radius: 4px;
-				font-size: 14px;
+				font-size: 13px;
 				background: $accentHover;
 				color: #fff;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				width: 160px;
-				height: 40px;
+				width: 156px;
+				height: 38px;
 				margin: 20px auto 0;
+				letter-spacing: .5px;
 			}
 		}
 	}

@@ -3,6 +3,14 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Cart from '../views/Cart.vue'
 
+// каталог
+import Category from '../views/Catalog/Category.vue'
+import Product from '../views/Catalog/Product.vue'
+
+// акции
+import IndexActions from '../views/Actions/Index.vue'
+import ShowActions from '../views/Actions/Show.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -12,9 +20,29 @@ const routes = [
     component: Home
   },
   {
+    path: '/actions',
+    name: 'actions',
+    component: IndexActions
+  },
+  {
+    path: '/actions/1',
+    name: 'action',
+    component: ShowActions
+  },
+  {
     path: '/cart',
     name: 'cart',
     component: Cart
+  },
+  {
+    path: '/catalog/category/:id',
+    name: 'category',
+    component: Category
+  },
+  {
+    path: '/catalog/product/:id',
+    name: 'product',
+    component: Product
   },
   {
     path: '/about',

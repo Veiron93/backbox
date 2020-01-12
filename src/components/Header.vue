@@ -22,7 +22,7 @@
 				</div>
 
 				<nav>
-					<router-link to="/about">
+					<router-link to="/actions">
 						<img src="@/assets/img/icons/percentage.svg" alt="">
 						<span>Акции</span>
 					</router-link>
@@ -37,11 +37,18 @@
 
 		<div class="bottom">
 			<div class="bottom-wrapper">
+				<div class="btn-catalog">
+					<img src="@/assets/img/icons/menu.svg" alt="">
+					<span>Каталог товаров</span>
+				</div>
+
 				<div class="catalog-navigation">
-					<a href="">Аксессуары</a>
-					<a href="">Компьютеры</a>
-					<a href="">Аудио</a>
-					<a href="">Чехлы</a>
+					<p>Аксессуары для:</p>
+					<a href="">Гаджетов</a>
+					<a href="">Компьютеров</a>
+					<a href="">Автомобилей</a>
+					<a href="">Дома</a>
+					<a href="">Прочее</a>
 				</div>
 
 				<div class="mini-cart">
@@ -148,23 +155,53 @@
 			background: #000;
 			
 			.bottom-wrapper{
-				padding-top: 8px;
-				padding-bottom: 8px;
+				padding-top: 10px;
+				padding-bottom: 10px;
 				position: relative;
+
+				display: flex;
+				align-items: center;
+
+				.btn-catalog{
+					//border: 1px solid red;
+					display: flex;
+					align-items: center;
+					margin-right: 60px;
+					cursor: pointer;
+
+					img{
+						height: 14px;
+						margin-right: 6px;
+					}
+
+					span{
+						color: #fff;
+						font-size: 13px;
+					}
+				}
 
 				.catalog-navigation{
 					display: flex;
 					justify-content: center;
+					align-items: center;
+					
+					p{
+						color: #fff;
+						font-size: 12px;
+						padding: 3px 0;
+						margin-right: 30px;
+						text-transform: uppercase;
+						letter-spacing: 1px;
+					}
 
 					a{
 						color: #fff;
 						text-transform: uppercase;
 						font-size: 12px;
-						margin-right: 40px;
+						margin-right: 34px;
 						letter-spacing: 1px;
 						line-height: 1em;
-						padding: 3px 0;
-						
+						padding: 3px 0;		
 
 						display: flex;
 						flex-direction: column;
@@ -174,9 +211,9 @@
 						//border-bottom: 1px solid transparent;
 						transition: border-color .2s;
 						
-						&:last-child{
-							margin-right: 0;
-						}
+						// &:last-child{
+						// 	margin-right: 0;
+						// }
 
 						&:nth-child(1){
 							//border-color: #526194;
@@ -190,13 +227,7 @@
 				}
 
 				.mini-cart{
-					//border: 1px solid red;
-					width: 100px;
-					height: 100%;
-
-					position: absolute;
-					right: 15px;
-					top: 0;
+					margin-left: auto;
 
 					display: flex;
 					align-items: center;
@@ -214,6 +245,7 @@
 						span{
 							font-size: 13px;
 							color: #fff;
+							letter-spacing: 1px;
 
 							span{
 								font-size: 12px;

@@ -4,6 +4,13 @@
 			<a href>
 				<img src="@/assets/img/test/tovar-1.jpeg" alt />
 			</a>
+
+			<div v-if="stocks" class="stikers">
+				<div v-for="stock in stocks" v-bind:key="stock.id" class="item rassrochka24">
+					<img v-bind:src="stock.img" alt="">
+					<div class="tooltip"></div>
+				</div>
+			</div>
 		</div>
 
 		<div class="info">
@@ -12,18 +19,18 @@
 				<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, similique! Asperiores quae minima dolore beatae fugiat laboriosam ducimus facere aspernatur odio, nulla ab ratione nobis! Quam reiciendis illo iure dolorem!</p>
 			</div>
 
-			<div class="price_and_btn_add">
+			<div class="price_and_btn_buy">
 				<div class="price">
 					<p>1500<span>₽</span></p>
 				</div>
 
-				<div class="btn_add" v-bind:class="{active:state}">
-					<a v-if="state" href="">
+				<div class="btn_buy">
+					<a v-if="state" href="" class="toCart">
 						<img src="@/assets/img/icons/white-box-close.svg" alt="">
 						<span>В коробке</span>
 					</a>
 
-					<a v-else href="">
+					<a v-else href="" class="addProduct">
 						<img src="@/assets/img/icons/white-box.svg" alt="">
 						<span>Добавить <br> в коробку</span>
 					</a>
@@ -37,7 +44,8 @@
 	export default {
 		name: "productItem",
 		props: {
-			state: String,
+			state: Boolean,
+			stocks: Array
 		}
 	};
 </script>
@@ -62,40 +70,40 @@
 				}
 			}
 
-				.stikers{
+			.stikers{
+				//border: 1px solid red;
+				border-radius: 4px;
+				position: absolute;
+				top: 10px;
+				left: 10px;
+
+				.item{
 					//border: 1px solid red;
 					border-radius: 4px;
-					position: absolute;
-					top: 10px;
-					left: 10px;
+					height: 30px;
+					width: 60px;
+					padding: 3px 5px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					position: relative;
 
-					.item{
-						//border: 1px solid red;
-						border-radius: 4px;
-						height: 30px;
-						width: 60px;
-						padding: 3px 5px;
-						display: flex;
-						align-items: center;
-						justify-content: center;
-						position: relative;
+					margin-bottom: 6px;
 
-						margin-bottom: 6px;
+					&:last-child{
+						margin-bottom: 0;
+					}
 
-						&:last-child{
-							margin-bottom: 0;
-						}
+					img{
+						display: block;
+					}
 
-						img{
-							display: block;
-						}
-
-						&.rassrochka24{
-							background: rgba(#ffc800, .8);
-						}
+					&.rassrochka24{
+						background: rgba(#ffc800, .8);
 					}
 				}
 			}
+		}
 
 			.info{
 				//border: 1px solid red;
@@ -111,7 +119,7 @@
 					}
 				}
 
-				.price_and_btn_add{
+				.price_and_btn_buy{
 					display: flex;
 					align-items: center;
 					justify-content: space-between;
@@ -148,17 +156,12 @@
 						}
 					}
 
-					.btn_add{
+					.btn_buy{
 						//border: 1px solid red;
 						height: 34px;
 						width: 124px;
 						border-radius: 4px 0px 0px 4px;
-						background: #000;
-						transition: background .2s;
-
-						&:hover{
-							background: #526194;
-						}
+						overflow: hidden;
 
 						a{
 							height: 100%;
@@ -166,6 +169,20 @@
 							align-items: center;
 							justify-content: space-between;
 							padding: 0 10px;
+
+
+							&.addProduct{
+								background: #000;
+								transition: background .2s;
+
+								&:hover{
+									background: #526194;
+								}
+							}
+
+							&.toCart{
+								background: #526194;
+							}
 							
 							img{
 								height: 20px;
@@ -179,11 +196,6 @@
 								line-height: 1.30em;
 								letter-spacing: 1px;
 							}
-
-						}
-
-						&.active{
-							background: #526194;
 						}
 					}
 				}
@@ -287,42 +299,7 @@
 					}
 
 					.btn_add{
-						//border: 1px solid red;
-						height: 34px;
-						width: 124px;
-						border-radius: 4px 0px 0px 4px;
-						background: #000;
-						transition: background .2s;
-
-						&:hover{
-							background: #526194;
-						}
-
-						a{
-							height: 100%;
-							display: flex;
-							align-items: center;
-							justify-content: space-between;
-							padding: 0 10px;
-							
-							img{
-								height: 20px;
-								display: block;
-							}
-
-							span{
-								color: #fff;
-								font-size: 11px;
-								text-transform: uppercase;
-								line-height: 1.30em;
-								letter-spacing: 1px;
-							}
-
-						}
-
-						&.active{
-							background: #526194;
-						}
+			
 					}
 				}
 			}
@@ -400,7 +377,7 @@
 					}
 				}
 
-				.price_and_btn_add{
+				.price_and_btn_buy{
 
 					.price{
 						//border: 1px solid red;
@@ -434,44 +411,8 @@
 						}
 					}
 
-					.btn_add{
-						//border: 1px solid red;
-						height: 34px;
-						width: 124px;
-						border-radius: 4px 0px 0px 4px;
-						background: #000;
-						transition: background .2s;
+					.btn_buy{
 						margin-right: -10px;
-
-						&:hover{
-							background: #526194;
-						}
-
-						a{
-							height: 100%;
-							display: flex;
-							align-items: center;
-							justify-content: space-between;
-							padding: 0 10px;
-							
-							img{
-								height: 20px;
-								display: block;
-							}
-
-							span{
-								color: #fff;
-								font-size: 11px;
-								text-transform: uppercase;
-								line-height: 1.30em;
-								letter-spacing: 1px;
-							}
-
-						}
-
-						&.active{
-							background: #526194;
-						}
 					}
 				}
 			}

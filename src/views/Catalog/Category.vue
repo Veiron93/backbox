@@ -66,18 +66,9 @@
 								</div>
 							</div>
 
-							<div class="listGoods view-list">
-								<ProductItem v-bind:state="state"/>
-								<ProductItem/>
-								<ProductItem/>
-								<ProductItem/>
-								<ProductItem/>
-								<ProductItem/>
-								<ProductItem/>
-								<ProductItem/>
-								<ProductItem/>
-								<ProductItem/>
-								<ProductItem/>
+							<div class="listGoods" v-bind:class="viewListGoods">
+								<ProductItem v-bind:state="true" v-bind:stocks="stocks"/>
+								<ProductItem v-bind:state="false" v-bind:stocks="[]"/>
 							</div>
 						</div>
 					</div>
@@ -102,13 +93,23 @@
 
 		data () {
 			return {
-				state: true
+				viewListGoods: "view-list",
+				state: true,
+				stocks: [
+					{"id":"123", "title":"Рассрочка 24.0.0", "img":"https://cdn.svyaznoy.ru/upload/files/svg/product-sticker-svg-round-id/931/0_0_24.svg"},
+					{"id":"2", "title":"Рассрочка 14.0.0", "img":"https://cdn.svyaznoy.ru/upload/files/svg/product-sticker-svg-round-id/931/0_0_24.svg"}
+				]
 			}	
 		},
 
 		methods: {
 			listGoodsView(){
+
+				//this.remove();
 				
+				// if(this.classList.contains('active')){
+				// 	this.classList.remove('active');
+				// }
 			}
 		},
 

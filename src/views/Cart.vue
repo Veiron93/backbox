@@ -86,7 +86,7 @@
 
 							<div class="item">
 								<label>
-									<input name="delivery" type="radio" value="2">
+									<input name="delivery" type="radio" value="2" checked>
 									<span>Доставка по Южно-Сахалинску</span>
 								</label>
 							</div>

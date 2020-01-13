@@ -53,17 +53,10 @@
 									</div>
 								</div>
 
-								<div class="products-view">
-									<p>Вид:</p>
-
-									<div v-on:click="listGoodsView" class="item item-list">
-										<img src="@/assets/img/icons/listing.svg" alt="">
-									</div>
-
-									<div v-on:click="listGoodsView" class="item item-table active">
-										<img src="@/assets/img/icons/table.svg" alt="">
-									</div>
-								</div>
+								<ViewCatalog 
+									:getTypeViewListGoods='getTypeViewListGoods' 
+									:active="viewListGoods"
+								/>
 							</div>
 
 							<div class="listGoods" v-bind:class="viewListGoods">
@@ -88,12 +81,13 @@
 		//name: 'product',
 
 		components: {
+			ViewCatalog: () => import('@/components/Goods/ViewCatalog'),
 			ProductItem: () => import('@/components/Goods/ProductItem'),
 		},
 
 		data () {
 			return {
-				viewListGoods: "view-list",
+				viewListGoods: "grid",
 				state: true,
 				stocks: [
 					{"id":"123", "title":"Рассрочка 24.0.0", "img":"https://cdn.svyaznoy.ru/upload/files/svg/product-sticker-svg-round-id/931/0_0_24.svg"},
@@ -103,18 +97,19 @@
 		},
 
 		methods: {
-			listGoodsView(){
-
-				//this.remove();
-				
-				// if(this.classList.contains('active')){
-				// 	this.classList.remove('active');
-				// }
+			getTypeViewListGoods (data) {
+				if(data){
+					this.viewListGoods = data.result;
+				}
 			}
 		},
 
 		mounted () {
 
+			// получаем из localStorage type отображения списка товаров
+			if (localStorage.viewListGoods) {
+				this.viewListGoods = localStorage.viewListGoods;
+			}
 		}
 	}
 </script>
@@ -155,53 +150,18 @@
 				}
 				
 			}
-
-			.products-view{
-				@include style-block;
-				width: 100px;
-				flex: none;
-				display: flex;
-				align-items: center;
-				padding: 0 10px;
-
-				p{
-					font-size: 14px;
-				}
-
-				.item{
-					margin-left: 10px;
-					cursor: pointer;
-					
-					img{
-						height: 14px;
-						opacity: .5;
-						display: block;
-						transition: opacity .2s;
-					}
-
-					&:hover, &.active{
-						img{
-							opacity: .8;
-						}
-					}
-
-					&.active{
-						cursor: default;
-					}
-				}
-			}
 		}
 
 	
 	.listGoods{
 
-		&.view-list{
+		&.list{
 			.productItem{
 				margin-bottom: 15px;
 			}
 		}
 
-		&.view-grid{
+		&.grid{
 			display: flex;
 			flex-wrap: wrap;
 

@@ -203,7 +203,7 @@
 
 	}
 
-	.view-grid{
+	.grid{
 		.productItem {
 			
 			.photo{
@@ -307,7 +307,7 @@
 	}
 
 
-	.view-list{
+	.list{
 		.productItem{
 			width: 100%;
 			display: flex;

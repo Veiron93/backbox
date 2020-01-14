@@ -50,6 +50,7 @@
 								<ProductItem v-bind:state="true" v-bind:stocks="stocks"/>
 								<ProductItem v-bind:state="false" v-bind:stocks="[]"/>
 							</div>
+							<vue-modal name="descriptionStock">hello, world!</vue-modal>
 						</div>
 					</div>
 				</div>

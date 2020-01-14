@@ -3,11 +3,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-					<div class="breadcrumbs">
-						<a href="">Смартфоны</a>
-						<a href="">Смартфоны</a>
-						<p>Apple</p>
-					</div>
+					<Breadcrumbs/>
 				</div>
 
 				<div class="col-12">
@@ -43,16 +39,7 @@
 						<div class="col-xl-9">
 
 							<div class="control-list-products">
-								<div class="products-sortings">
-									<p>Сортировать по:</p>
-
-									<div class="list-sorting">
-										<a href="">Цене</a>
-										<a href="">Скидке</a>
-										<a href="">Популярности</a>
-									</div>
-								</div>
-
+								<SortingGoods/>
 								<ViewCatalog 
 									:getTypeViewListGoods='getTypeViewListGoods' 
 									:active="viewListGoods"
@@ -81,6 +68,8 @@
 		//name: 'product',
 
 		components: {
+			Breadcrumbs: () => import('@/components/Breadcrumbs'),
+			SortingGoods: () => import('@/components/Goods/SortingGoods'),
 			ViewCatalog: () => import('@/components/Goods/ViewCatalog'),
 			ProductItem: () => import('@/components/Goods/ProductItem'),
 		},
@@ -90,8 +79,8 @@
 				viewListGoods: "grid",
 				state: true,
 				stocks: [
-					{"id":"123", "title":"Рассрочка 24.0.0", "img":"https://cdn.svyaznoy.ru/upload/files/svg/product-sticker-svg-round-id/931/0_0_24.svg"},
-					{"id":"2", "title":"Рассрочка 14.0.0", "img":"https://cdn.svyaznoy.ru/upload/files/svg/product-sticker-svg-round-id/931/0_0_24.svg"}
+					{"id":"123", "title":"Рассрочка 0|0|10", "description":"", "background":"rgba(109,181,224,0.9)", "color":"#fff"},
+					{"id":"2", "title":"Бесплатная доставка", "description":"", "background":"rgba(109,181,224,0.9)", "color":"#fff"}
 				]
 			}	
 		},
@@ -121,37 +110,11 @@
 		@include style-block;
 		padding: 20px;
 	}
-
 	
 	.control-list-products{
 		display: flex;
 		margin-bottom: 20px;
-
-			.products-sortings{
-				@include style-block;
-				padding: 10px;
-				
-				display: flex;
-				align-items: center;
-				flex: none;
-				width: calc(100% - 110px);
-				margin-right: 10px;
-
-				p{
-					margin-right: 15px;
-					font-size: 14px;
-				}
-
-				.list-sorting{
-					a{
-						font-size: 14px;
-						margin-right: 20px;
-					}
-				}
-				
-			}
-		}
-
+	}
 	
 	.listGoods{
 
@@ -200,48 +163,6 @@
 				font-weight: bold;
 				font-size: 18px;
 			}
-		}
-	}
-
-
-
-	.breadcrumbs{
-		display: flex;
-		align-items: center;
-		flex-wrap: wrap;
-		margin-bottom: 15px;		
-
-		a, p{
-			font-size: 13px;
-		}
-
-		a{
-			color: #888888;
-			margin-right: 8px;
-			display: flex;
-			align-items: center;
-			transition: color .2s;
-
-			&:after{
-				content: "";
-				display: block;
-				height: 8px;
-				width: 8px;
-				//border: 1px solid red;
-				background: url("../../assets/img/icons/breadcrumbs-arrow.svg");
-				background-size: contain;
-				margin-top: 1px;
-				margin-left: 8px;
-				background-repeat: no-repeat;
-			}
-
-			&:hover{
-				color: $accent;
-			}
-		}
-
-		p{
-			color: #5e5e5f;
 		}
 	}
 </style>

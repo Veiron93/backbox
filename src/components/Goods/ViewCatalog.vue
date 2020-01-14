@@ -1,14 +1,8 @@
 <template>
 	<div class="products-view">
 		<p>Вид:</p>
-
-		<div ref="list" class="item" @click="viewListGoods($event)" data-view-catalog="list">
-			<img src="@/assets/img/icons/listing.svg">
-		</div>
-
-		<div ref="grid" class="item" @click="viewListGoods($event)" data-view-catalog="grid">
-			<img src="@/assets/img/icons/table.svg">
-		</div>
+		<div ref="list" @click="viewListGoods($event)" data-type="list"></div>
+		<div ref="grid" @click="viewListGoods($event)" data-type="grid"></div>
 	</div>
 </template>
 
@@ -24,8 +18,17 @@
 
 		methods: {
 			viewListGoods(event){
+				
+				let activeBtnViewCatalog = event.currentTarget;
+				let type = activeBtnViewCatalog.getAttribute("data-type");
 
-				let type = event.currentTarget.getAttribute("data-view-catalog");
+				if(type == "list"){
+					this.$refs.grid.classList.remove("active");
+				}else if(type == "grid"){
+					this.$refs.list.classList.remove("active");
+				}
+
+				activeBtnViewCatalog.classList.add("active");
 
 				localStorage.viewListGoods = type;
 
@@ -35,16 +38,9 @@
 			}
 		},
 
-		computed: {
-			
-		},
-
 		mounted: function() {
-			//let test = document.querySelector(".item[data-view-catalog='list'>]");
-			
-			let test = this.$refs.list
-
-			console.log(test)
+			// применяюся стили для активного пункта Вида каталога
+			this.$refs[this.active].classList.add("active");
 		}
 	};
 </script>
@@ -53,7 +49,6 @@
 	.products-view {
 		@include style-block;
 		width: 100px;
-		flex: none;
 		display: flex;
 		align-items: center;
 		padding: 0 10px;
@@ -62,24 +57,36 @@
 			font-size: 14px;
 		}
 
-		.item {
+		> div {
+			flex: none;
 			margin-left: 10px;
 			cursor: pointer;
+			
+			height: 14px;
+			width: 14px;
 
-			img {
-				height: 14px;
-				opacity: 0.5;
-				display: block;
-				transition: opacity 0.2s;
+			opacity: .4;
+			transition: opacity 0.2s;
+
+			&[data-type="list"]{
+				background: url("../../assets/img/icons/listing.svg");
 			}
 
-			&:hover {
-				img {
-					opacity: 0.8;
-				}
+			&[data-type="grid"]{
+				background: url("../../assets/img/icons/table.svg");
 			}
 
-			&.active {
+			&[data-type="list"], &[data-type="grid"]{
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
+
+			&:hover{
+				opacity: .8;
+			}
+
+			&.active{
+				opacity: .7;
 				cursor: default;
 			}
 		}

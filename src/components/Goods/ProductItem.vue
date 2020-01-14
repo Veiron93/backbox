@@ -6,9 +6,8 @@
 			</a>
 
 			<div v-if="stocks" class="stikers">
-				<div v-for="stock in stocks" v-bind:key="stock.id" class="item rassrochka24">
-					<img v-bind:src="stock.img" alt="">
-					<div class="tooltip"></div>
+				<div v-for="stock in stocks" v-bind:key="stock.id" v-bind:style="{background:stock.background}">
+					<p v-bind:style="{color:stock.color}">{{stock.title}}</p>
 				</div>
 			</div>
 		</div>
@@ -69,92 +68,58 @@
 					max-width: 100%;
 				}
 			}
+		}
 
-			.stikers{
-				//border: 1px solid red;
-				border-radius: 4px;
-				position: absolute;
-				top: 10px;
-				left: 10px;
+		.info{
+			//border: 1px solid red;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
 
-				.item{
-					//border: 1px solid red;
-					border-radius: 4px;
-					height: 30px;
-					width: 60px;
-					padding: 3px 5px;
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					position: relative;
-
-					margin-bottom: 6px;
-
-					&:last-child{
-						margin-bottom: 0;
-					}
-
-					img{
-						display: block;
-					}
-
-					&.rassrochka24{
-						background: rgba(#ffc800, .8);
+			.name{
+				a{
+					&:hover{
+						color: #526194;
 					}
 				}
 			}
-		}
 
-			.info{
-				//border: 1px solid red;
+			.price_and_btn_buy{
 				display: flex;
-				flex-direction: column;
+				align-items: center;
 				justify-content: space-between;
 
-				.name{
-					a{
-						&:hover{
-							color: #526194;
+				.price{
+					position: relative;
+
+					p{
+						font-weight: bold;
+						font-size: 20px;
+						line-height: 1em;
+					}
+
+					.old-price{
+						font-size: 15px;
+						font-weight: normal;
+						//border: 1px solid red;
+						position: absolute;
+						display: flex;
+						align-items: center;
+						margin-top: -16px;
+						margin-left: 3px;
+						color: #9a9a9a;
+
+						&:before{
+							content: '';
+							width: calc(100% + 6px);
+							display: block;
+							height: 1px;
+							background: #9a9a9a;
+							position: absolute;
+							left: -3px;
 						}
 					}
 				}
-
-				.price_and_btn_buy{
-					display: flex;
-					align-items: center;
-					justify-content: space-between;
-
-					.price{
-						position: relative;
-
-						p{
-							font-weight: bold;
-							font-size: 20px;
-							line-height: 1em;
-						}
-
-						.old-price{
-							font-size: 15px;
-							font-weight: normal;
-							//border: 1px solid red;
-							position: absolute;
-							display: flex;
-							align-items: center;
-							margin-top: -16px;
-							margin-left: 3px;
-							color: #9a9a9a;
-
-							&:before{
-								content: '';
-								width: calc(100% + 6px);
-								display: block;
-								height: 1px;
-								background: #9a9a9a;
-								position: absolute;
-								left: -3px;
-							}
-						}
-					}
 
 					.btn_buy{
 						//border: 1px solid red;
@@ -198,9 +163,8 @@
 							}
 						}
 					}
-				}
 			}
-
+		}
 	}
 
 	.grid{
@@ -213,21 +177,17 @@
 
 				.stikers{
 					//border: 1px solid red;
-					border-radius: 4px;
 					position: absolute;
 					top: 10px;
 					left: 10px;
 
-					.item{
-						//border: 1px solid red;
+					> div{
 						border-radius: 4px;
 						height: 30px;
-						width: 60px;
-						padding: 3px 5px;
+						
+						padding: 3px 8px;
 						display: flex;
 						align-items: center;
-						justify-content: center;
-						position: relative;
 
 						margin-bottom: 6px;
 
@@ -235,12 +195,10 @@
 							margin-bottom: 0;
 						}
 
-						img{
-							display: block;
-						}
-
-						&.rassrochka24{
-							background: rgba(#ffc800, .8);
+						p{
+							font-size: 10px;
+							text-transform: uppercase;
+							letter-spacing: 1px;
 						}
 					}
 				}
@@ -263,7 +221,7 @@
 					}
 				}
 
-				.price_and_btn_add{
+				.price_and_btn_buy{
 					padding: 20px 0px 10px 15px;
 
 					.price{
@@ -320,39 +278,35 @@
 
 				.stikers{
 					//border: 1px solid red;
-					border-radius: 4px;
 					position: absolute;
-					top: 10px;
-					left: 10px;
+					bottom: 10px;
+					left: 280px;
+					display: flex;
+					align-items: center;
 
-					.item{
+					> div{
 						//border: 1px solid red;
+						margin-right: 15px;
 						border-radius: 4px;
-						height: 30px;
-						width: 60px;
-						padding: 3px 5px;
+						height: 34px;
+						padding: 0 10px;
+
 						display: flex;
 						align-items: center;
 						justify-content: center;
-						position: relative;
-
-						margin-bottom: 6px;
 
 						&:last-child{
-							margin-bottom: 0;
+							margin-right: 0;
 						}
 
-						img{
-							display: block;
-						}
-
-						&.rassrochka24{
-							background: rgba(#ffc800, .8);
+						p{
+							font-size: 11px;
+							letter-spacing: 1px;
+							text-transform: uppercase;
 						}
 					}
 				}
 			}
-
 
 			.info{
 				//border: 1px solid red;
@@ -378,6 +332,7 @@
 				}
 
 				.price_and_btn_buy{
+					//border: 1px solid red;
 
 					.price{
 						//border: 1px solid red;
@@ -391,7 +346,6 @@
 						.old-price{
 							font-size: 15px;
 							font-weight: normal;
-							//border: 1px solid red;
 							position: absolute;
 							display: flex;
 							align-items: center;

@@ -53,48 +53,7 @@
 						class="goods-slider">
 
 						<slide>
-							<div class="productCard productCard--mini">
-								
-								<div class="photo">
-									<a href="">
-										<img src="@/assets/img/test/tovar-1.jpeg" alt="">
-									</a>
-
-									<div class="stikers">
-										<div class="item rassrochka24">
-											<img src="https://cdn.svyaznoy.ru/upload/files/svg/product-sticker-svg-round-id/931/0_0_24.svg" alt="">
-											<div class="tooltip">
-
-											</div>
-										</div>
-										<div class="item rassrochka24">
-											<img src="https://cdn.svyaznoy.ru/upload/files/svg/product-sticker-svg-round-id/931/0_0_24.svg" alt="">
-											<div class="tooltip">
-
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<div class="info">
-									<div class="name">
-										<a href="">Игровая консоль c цветным экраном 108 игр</a>
-									</div>
-									
-									<div class="price_and_btn_add">
-										<div class="price">
-											<p class="old-price">2000</p>
-											<p>1500 <span>₽</span></p>
-										</div>
-
-										<div class="btn_add" title="В коробку">
-											<a href="">
-												<img src="@/assets/img/icons/white-box.svg" alt="">
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
+							<ProductItemMini v-bind:state="true" v-bind:stocks="stocks"/>
 						</slide>
 					</carousel>
 				</div>
@@ -113,6 +72,7 @@
 			Carousel,
 			Slide,
 			ProductItem: () => import('@/components/Catalog/ProductItem'),
+			ProductItemMini: () => import('@/components/Catalog/ProductItemMini')
 		},
 
 		data () {

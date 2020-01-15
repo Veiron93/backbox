@@ -15,7 +15,6 @@
 		<div class="info">
 			<div class="name">
 				<a href="">Игровая консоль c цветным экраном 108 игр</a>
-				<p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, similique! Asperiores quae minima dolore beatae fugiat laboriosam ducimus facere aspernatur odio, nulla ab ratione nobis! Quam reiciendis illo iure dolorem!</p>
 			</div>
 
 			<div class="price_and_btn_buy">
@@ -69,11 +68,13 @@
 		}
 
 		.photo{
+			height: 140px;
 			a{
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				height: 100%;
+				padding: 15px;
 
 				img{
 					display: block;
@@ -85,6 +86,8 @@
 
 		.stikers{
 			position: absolute;
+			top: 10px;
+			left: 10px;
 
 			> div{
 				border-radius: 4px;
@@ -94,7 +97,7 @@
 					display: flex;
 					align-items: center;
 					height: 100%;
-					font-size: 10px;
+					font-size: 8px;
 					text-transform: uppercase;
 					letter-spacing: 1px;
 					padding: 0 8px;
@@ -109,6 +112,10 @@
 			justify-content: space-between;
 
 			.name{
+				padding: 0px 10px;
+				font-size: 16px;
+				line-height: 1.1em;
+
 				a{
 					&:hover{
 						color: #526194;
@@ -120,14 +127,14 @@
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
+				padding: 10px 0px 10px 10px;
 
 				.price{
-					position: relative;
 					display: flex;
 
 					p{
 						font-weight: bold;
-						font-size: 20px;
+						font-size: 16px;
 						line-height: 1em;
 
 						span{
@@ -138,13 +145,13 @@
 					}
 
 					.old-price{
-						font-size: 15px;
+						font-size: 12px;
 						font-weight: normal;
 						//border: 1px solid red;
 						position: absolute;
 						display: flex;
 						align-items: center;
-						margin-top: -16px;
+						margin-top: -12px;
 						margin-left: 3px;
 						color: #b5b5b5;
 
@@ -163,8 +170,8 @@
 
 				.btn_buy{
 					//border: 1px solid red;
-					height: 34px;
-					width: 120px;
+					height: 28px;
+					width: 36px;
 					border-radius: 4px 0px 0px 4px;
 					overflow: hidden;
 					
@@ -191,127 +198,9 @@
 						}
 							
 						img{
-							height: 20px;
+							height: 18px;
 							display: block;
 						}
-
-						span{
-							color: #fff;
-							font-size: 11px;
-							text-transform: uppercase;
-							line-height: 1.30em;
-							letter-spacing: 1px;
-						}
-					}
-				}
-			}
-		}
-	}
-
-	.grid{
-		.product-item {
-			
-			.photo{
-				//border: 1px solid red;
-				height: 200px;
-				padding: 20px;
-			}
-
-			.stikers{
-				//border: 1px solid red;
-				top: 10px;
-				left: 10px;
-
-				> div{
-					margin-bottom: 6px;
-
-					&:last-child{
-						margin-bottom: 0;
-					}
-				}
-			}
-
-			.info{
-				//border: 1px solid red;
-				height: calc(100% - 200px);
-
-				.name{
-					padding: 0px 15px;
-					//border: 1px solid red;
-					a{
-						font-size: 16px;
-						line-height: 1.1em;
-					}
-
-					.description{
-						display: none;
-					}
-				}
-
-				.price_and_btn_buy{
-					padding: 20px 0px 10px 15px;
-				}
-			}
-		}
-	}
-
-
-	.list{
-		.product-item{
-			width: 100%;
-			display: flex;
-
-			.photo{
-				//border: 1px solid red;
-				width: 160px;
-				padding: 20px;
-				flex: none;
-			}
-
-			.stikers{
-				//border: 1px solid red;
-				bottom: 15px;
-				left: 280px;
-				display: flex;
-				align-items: center;
-
-				> div{
-					margin-right: 15px;
-					
-					&:last-child{
-						margin-right: 0;
-					}
-				}
-			}
-
-			.info{
-				//border: 1px solid red;
-				width: 100%;
-				padding: 10px;
-				padding-left: 20px;
-
-				.name{			
-					//border: 1px solid red;
-					margin-bottom: 10px;
-
-					a{
-						font-size: 18px;
-						line-height: 1.35em;
-					}
-
-					.description{
-						margin-top: 10px;
-						font-size: 14px;
-						line-height: 1.5em;
-						color: #6b6b6b;
-					}
-				}
-
-				.price_and_btn_buy{
-					//border: 1px solid red;
-
-					.btn_buy{
-						margin-right: -10px;
 					}
 				}
 			}

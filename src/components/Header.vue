@@ -27,7 +27,7 @@
 						<span>Акции</span>
 					</router-link>
 
-					<router-link to="/about">
+					<router-link to="/delivery">
 						<img src="@/assets/img/icons/delivery-man.svg" alt="">
 						<span>Доставка и оплата</span>
 					</router-link>
@@ -48,7 +48,6 @@
 					<a href="">Компьютеров</a>
 					<a href="">Автомобилей</a>
 					<a href="">Дома</a>
-					<a href="">Прочее</a>
 				</div>
 
 				<div class="mini-cart">
@@ -96,8 +95,8 @@
 				
 				.logo{
 					//border: 1px solid red;
-					height: 44px;
-					margin-right: 50px;
+					height: 46px;
+					margin-right: 59px;
 					
 
 					a{
@@ -155,8 +154,8 @@
 			background: #000;
 			
 			.bottom-wrapper{
-				padding-top: 10px;
-				padding-bottom: 10px;
+				padding-top: 12px;
+				padding-bottom: 12px;
 				position: relative;
 
 				display: flex;

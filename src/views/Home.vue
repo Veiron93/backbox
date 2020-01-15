@@ -29,7 +29,7 @@
 				</div>
 
 				<div class="col-12">
-					<div class="listGoods grid">
+					<div class="list-goods grid">
 						<ProductItem v-bind:state="true" v-bind:stocks="stocks"/>
 						<ProductItem v-bind:state="false" v-bind:stocks="[]"/>
 					</div>				
@@ -54,6 +54,7 @@
 
 						<slide>
 							<div class="productCard productCard--mini">
+								
 								<div class="photo">
 									<a href="">
 										<img src="@/assets/img/test/tovar-1.jpeg" alt="">
@@ -111,7 +112,7 @@
 		components: {
 			Carousel,
 			Slide,
-			ProductItem: () => import('@/components/Goods/ProductItem'),
+			ProductItem: () => import('@/components/Catalog/ProductItem'),
 		},
 
 		data () {
@@ -141,8 +142,21 @@
 	}
 
 	.section-hits{
-		.listGoods{
-			
+		.list-goods{
+			display: flex;
+			flex-wrap: wrap;
+
+			.product-item{
+				flex: none;
+				height: calc(100% - 20px);
+				width: calc((100% - 60px)/4);
+				margin-right: 20px;
+				margin-bottom: 20px;
+
+				&:nth-of-type(4n){
+					margin-right: 0;
+				}
+			}
 		}
 	}
 

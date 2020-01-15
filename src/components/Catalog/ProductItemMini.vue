@@ -1,5 +1,5 @@
 <template>
-	<div class="productItem">
+	<div class="product-item-mini">
 		<div class="photo">
 			<a href>
 				<img src="@/assets/img/test/tovar-1.jpeg" alt />
@@ -25,14 +25,12 @@
 				</div>
 
 				<div class="btn_buy">
-					<a v-if="state" href="" class="toCart">
+					<a v-if="state" href="" class="to-cart">
 						<img src="@/assets/img/icons/white-box-close.svg" alt="">
-						<span>В коробке</span>
 					</a>
 
-					<a v-else href="" class="addProduct">
+					<a v-else href="" class="add-product">
 						<img src="@/assets/img/icons/white-box.svg" alt="">
-						<span>Добавить <br> в коробку</span>
 					</a>
 				</div>
 			</div>
@@ -44,7 +42,6 @@
 
 <script>
 	export default {
-		name: "productItem",
 		props: {
 			state: Boolean,
 			stocks: Array
@@ -62,13 +59,13 @@
 
 <style lang="scss">
 
-	.productItem {
+	.product-item-mini {
 		@include style-block;
 		position: relative;
 		transition: box-shadow .2s;
 
 		&:hover{
-			box-shadow: 0 1px 10px 0 rgba($accentHover, 0.3);
+			box-shadow: 0 1px 5px 0 rgba(0,0,0,0.2);
 		}
 
 		.photo{
@@ -180,7 +177,7 @@
 						padding: 0 10px;
 
 
-						&.addProduct{
+						&.add-product{
 							background: #000;
 							transition: background .2s;
 
@@ -189,7 +186,7 @@
 							}
 						}
 
-						&.toCart{
+						&.to-cart{
 							background: #526194;
 						}
 							
@@ -212,7 +209,7 @@
 	}
 
 	.grid{
-		.productItem {
+		.product-item {
 			
 			.photo{
 				//border: 1px solid red;
@@ -260,7 +257,7 @@
 
 
 	.list{
-		.productItem{
+		.product-item{
 			width: 100%;
 			display: flex;
 

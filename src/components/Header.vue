@@ -50,11 +50,233 @@
 					<a href="">Дома</a>
 				</div>
 
-				<div class="mini-cart">
-					<router-link to="/cart">
-						<img src="@/assets/img/icons/white-box.svg" alt="">
-						<span>1450 <span>₽</span></span>
-					</router-link>
+				<MiniCart/>
+			</div>
+		</div>
+
+		<div class="menu-catalog">
+			<div class="menu-catalog_root">
+
+				<div class="title-menu-catalog">
+					<p>Аксессуары для</p>
+				</div>
+
+				<div class="list-root-categories">
+					<div class="item">
+						<div class="icon">
+							<img src="@/assets/img/icons/delete.svg" alt="">
+						</div>
+
+						<div class="category">
+							<div class="main-category">
+								<router-link to="/">Гаджетов</router-link>
+							</div>
+
+							<div class="sub">
+								<a href="">Модуляторы</a>
+								<a href="">Автовизитки</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="item">
+						<div class="icon">
+							<img src="@/assets/img/icons/delete.svg" alt="">
+						</div>
+
+						<div class="category">
+							<div class="main-category">
+								<router-link to="/">Гаджетов</router-link>
+							</div>
+
+							<div class="sub">
+								<a href="">Модуляторы</a>
+								<a href="">Автовизитки</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="item">
+						<div class="icon">
+							<img src="@/assets/img/icons/delete.svg" alt="">
+						</div>
+
+						<div class="category">
+							<div class="main-category">
+								<router-link to="/">Гаджетов</router-link>
+							</div>
+
+							<div class="sub">
+								<a href="">Модуляторы</a>
+								<a href="">Автовизитки</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="item">
+						<div class="icon">
+							<img src="@/assets/img/icons/delete.svg" alt="">
+						</div>
+
+						<div class="category">
+							<div class="main-category">
+								<router-link to="/">Гаджетов</router-link>
+							</div>
+
+							<div class="sub">
+								<a href="">Модуляторы</a>
+								<a href="">Автовизитки</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="item">
+						<div class="icon">
+							<img src="@/assets/img/icons/delete.svg" alt="">
+						</div>
+
+						<div class="category">
+							<div class="main-category">
+								<router-link to="/">Гаджетов</router-link>
+							</div>
+
+							<div class="sub">
+								<a href="">Модуляторы</a>
+								<a href="">Автовизитки</a>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="item">
+						<div class="icon">
+							<img src="@/assets/img/icons/black-box.svg" alt="">
+						</div>
+
+						<div class="category">
+							<div class="main-category">
+								<router-link to="/">Автомобилей</router-link>
+							</div>
+
+							<div class="sub">
+								<a href="">Модуляторы</a>
+								<a href="">Автовизитки</a>
+							</div>
+						</div>
+
+
+
+						<!-- дочерние категории-->
+
+						<div class="sub_categories">
+
+							<div class="column">
+								<div class="sub_category">
+									<div class="main-category">
+										<div class="icon">
+											<img src="@/assets/img/icons/smartphone.svg" alt="">
+										</div>
+										<router-link to="/">Смартфоны</router-link>
+									</div>
+
+									<div class="sub">
+										<a href="">Защитные стёкла</a>
+										<a href="">Гидрогель плёнки</a>
+										<a href="">Защитные стёкла</a>
+										<a href="">Чехлы</a>
+										<a href="">Защитные стёкла</a>
+										<a href="">Чехлы</a>
+									</div>
+								</div>
+
+								<div class="sub_category">
+									<div class="main-category">
+										<div class="icon">
+											<img src="@/assets/img/icons/watch.svg" alt="">
+										</div>
+										<router-link to="/">Смарт-часы</router-link>
+									</div>
+
+									<div class="sub">
+										<a href="">Защитные стёкла</a>
+										<a href="">Защитные стёкла</a>
+										<a href="">Чехлы</a>
+									</div>
+								</div>
+
+								<div class="sub_category">
+									<div class="main-category">
+										<div class="icon">
+											<img src="@/assets/img/icons/airpods.svg" alt="">
+										</div>
+										<router-link to="/">AirPods</router-link>
+									</div>
+
+									<div class="sub">
+										<a href="">Чехлы</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="column">
+								<div class="sub_category">
+									<div class="main-category">
+										<div class="icon">
+											<img src="@/assets/img/icons/smartphone.svg" alt="">
+										</div>
+										<router-link to="/">Смартфоны</router-link>
+									</div>
+
+									<div class="sub">
+										<a href="">Защитные стёкла</a>
+										<a href="">Гидрогель плёнки</a>
+										<a href="">Защитные стёкла</a>
+										<a href="">Чехлы</a>
+										<a href="">Защитные стёкла</a>
+
+										<router-link to="/" class="all-categories">Все категории <span>></span></router-link>
+									</div>
+								</div>
+
+								<div class="sub_category">
+									<div class="main-category">
+										<div class="icon">
+											<img src="@/assets/img/icons/watch.svg" alt="">
+										</div>
+										<router-link to="/">Смарт-часы</router-link>
+									</div>
+
+									<div class="sub">
+										<a href="">Защитные стёкла</a>
+										<a href="">Защитные стёкла</a>
+										<a href="">Чехлы</a>
+									</div>
+								</div>
+
+								<div class="sub_category">
+									<div class="main-category">
+										<div class="icon">
+											<img src="@/assets/img/icons/airpods.svg" alt="">
+										</div>
+										<router-link to="/">AirPods</router-link>
+									</div>
+
+									<div class="sub">
+										<a href="">Чехлы</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="column-ads">
+								<div class="item">
+									<router-link to="/">
+										<img src="" alt="">
+									</router-link>
+								</div>
+							</div>
+							
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -64,6 +286,9 @@
 <script>
 	export default {
 		name: 'Header',
+		components: {
+			MiniCart: () => import('@/components/MiniCart'),
+		},
 		props: {
 
 		}
@@ -227,31 +452,6 @@
 
 				.mini-cart{
 					margin-left: auto;
-
-					display: flex;
-					align-items: center;
-					justify-content: flex-end;
-
-					a{
-						display: flex;
-						align-items: center;
-
-						img{
-							height: 20px;
-							margin-right: 5px;
-						}
-
-						span{
-							font-size: 13px;
-							color: #fff;
-							letter-spacing: 1px;
-
-							span{
-								font-size: 12px;
-							}
-						}
-						
-					}
 				}
 			}
 		}

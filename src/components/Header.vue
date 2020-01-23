@@ -36,13 +36,13 @@
 		</div>
 
 		<div class="bottom">
-			<div class="bottom-wrapper">
-				<div class="btn-catalog">
-					<img src="@/assets/img/icons/menu.svg" alt="">
-					<span>Каталог товаров</span>
-				</div>
 
-				<div class="catalog-navigation">
+			<div class="bottom-wrapper">
+
+				<MenuCatalog />
+				
+
+				<div class="main-catalog-categories-header">
 					<p>Аксессуары для:</p>
 					<a href="">Гаджетов</a>
 					<a href="">Компьютеров</a>
@@ -53,233 +53,6 @@
 				<MiniCart/>
 			</div>
 		</div>
-
-		<div class="menu-catalog">
-			<div class="menu-catalog_root">
-
-				<div class="title-menu-catalog">
-					<p>Аксессуары для</p>
-				</div>
-
-				<div class="list-root-categories">
-					<div class="item">
-						<div class="icon">
-							<img src="@/assets/img/icons/delete.svg" alt="">
-						</div>
-
-						<div class="category">
-							<div class="main-category">
-								<router-link to="/">Гаджетов</router-link>
-							</div>
-
-							<div class="sub">
-								<a href="">Модуляторы</a>
-								<a href="">Автовизитки</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="item">
-						<div class="icon">
-							<img src="@/assets/img/icons/delete.svg" alt="">
-						</div>
-
-						<div class="category">
-							<div class="main-category">
-								<router-link to="/">Гаджетов</router-link>
-							</div>
-
-							<div class="sub">
-								<a href="">Модуляторы</a>
-								<a href="">Автовизитки</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="item">
-						<div class="icon">
-							<img src="@/assets/img/icons/delete.svg" alt="">
-						</div>
-
-						<div class="category">
-							<div class="main-category">
-								<router-link to="/">Гаджетов</router-link>
-							</div>
-
-							<div class="sub">
-								<a href="">Модуляторы</a>
-								<a href="">Автовизитки</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="item">
-						<div class="icon">
-							<img src="@/assets/img/icons/delete.svg" alt="">
-						</div>
-
-						<div class="category">
-							<div class="main-category">
-								<router-link to="/">Гаджетов</router-link>
-							</div>
-
-							<div class="sub">
-								<a href="">Модуляторы</a>
-								<a href="">Автовизитки</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="item">
-						<div class="icon">
-							<img src="@/assets/img/icons/delete.svg" alt="">
-						</div>
-
-						<div class="category">
-							<div class="main-category">
-								<router-link to="/">Гаджетов</router-link>
-							</div>
-
-							<div class="sub">
-								<a href="">Модуляторы</a>
-								<a href="">Автовизитки</a>
-							</div>
-						</div>
-					</div>
-
-
-					<div class="item">
-						<div class="icon">
-							<img src="@/assets/img/icons/black-box.svg" alt="">
-						</div>
-
-						<div class="category">
-							<div class="main-category">
-								<router-link to="/">Автомобилей</router-link>
-							</div>
-
-							<div class="sub">
-								<a href="">Модуляторы</a>
-								<a href="">Автовизитки</a>
-							</div>
-						</div>
-
-
-
-						<!-- дочерние категории-->
-
-						<div class="sub_categories">
-
-							<div class="column">
-								<div class="sub_category">
-									<div class="main-category">
-										<div class="icon">
-											<img src="@/assets/img/icons/smartphone.svg" alt="">
-										</div>
-										<router-link to="/">Смартфоны</router-link>
-									</div>
-
-									<div class="sub">
-										<a href="">Защитные стёкла</a>
-										<a href="">Гидрогель плёнки</a>
-										<a href="">Защитные стёкла</a>
-										<a href="">Чехлы</a>
-										<a href="">Защитные стёкла</a>
-										<a href="">Чехлы</a>
-									</div>
-								</div>
-
-								<div class="sub_category">
-									<div class="main-category">
-										<div class="icon">
-											<img src="@/assets/img/icons/watch.svg" alt="">
-										</div>
-										<router-link to="/">Смарт-часы</router-link>
-									</div>
-
-									<div class="sub">
-										<a href="">Защитные стёкла</a>
-										<a href="">Защитные стёкла</a>
-										<a href="">Чехлы</a>
-									</div>
-								</div>
-
-								<div class="sub_category">
-									<div class="main-category">
-										<div class="icon">
-											<img src="@/assets/img/icons/airpods.svg" alt="">
-										</div>
-										<router-link to="/">AirPods</router-link>
-									</div>
-
-									<div class="sub">
-										<a href="">Чехлы</a>
-									</div>
-								</div>
-							</div>
-
-							<div class="column">
-								<div class="sub_category">
-									<div class="main-category">
-										<div class="icon">
-											<img src="@/assets/img/icons/smartphone.svg" alt="">
-										</div>
-										<router-link to="/">Смартфоны</router-link>
-									</div>
-
-									<div class="sub">
-										<a href="">Защитные стёкла</a>
-										<a href="">Гидрогель плёнки</a>
-										<a href="">Защитные стёкла</a>
-										<a href="">Чехлы</a>
-										<a href="">Защитные стёкла</a>
-
-										<router-link to="/" class="all-categories">Все категории <span>></span></router-link>
-									</div>
-								</div>
-
-								<div class="sub_category">
-									<div class="main-category">
-										<div class="icon">
-											<img src="@/assets/img/icons/watch.svg" alt="">
-										</div>
-										<router-link to="/">Смарт-часы</router-link>
-									</div>
-
-									<div class="sub">
-										<a href="">Защитные стёкла</a>
-										<a href="">Защитные стёкла</a>
-										<a href="">Чехлы</a>
-									</div>
-								</div>
-
-								<div class="sub_category">
-									<div class="main-category">
-										<div class="icon">
-											<img src="@/assets/img/icons/airpods.svg" alt="">
-										</div>
-										<router-link to="/">AirPods</router-link>
-									</div>
-
-									<div class="sub">
-										<a href="">Чехлы</a>
-									</div>
-								</div>
-							</div>
-
-							<div class="column-ads">
-								<div class="item">
-									<router-link to="/">
-										<img src="" alt="">
-									</router-link>
-								</div>
-							</div>
-							
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 	</header>
 </template>
 
@@ -287,9 +60,13 @@
 	export default {
 		name: 'Header',
 		components: {
+			MenuCatalog: () => import('@/components/Catalog/MenuCatalog'),
 			MiniCart: () => import('@/components/MiniCart'),
 		},
 		props: {
+
+		},
+		methods: {
 
 		}
 	}
@@ -297,9 +74,8 @@
 
 <style lang="scss">
 	header{
-		// border: 1px solid red;
 		margin-bottom: 30px;
-		box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+		box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.4);
 
 		.top, .bottom{
 			.top-wrapper, .bottom-wrapper{
@@ -316,7 +92,6 @@
 			.top-wrapper{
 				display: flex;
 				align-items: center;
-				//justify-content: space-between;
 				
 				.logo{
 					//border: 1px solid red;
@@ -375,77 +150,39 @@
 		}
 
 		.bottom{
-			//background: $accent;
 			background: #000;
 			
 			.bottom-wrapper{
-				padding-top: 12px;
-				padding-bottom: 12px;
 				position: relative;
-
 				display: flex;
 				align-items: center;
+				height: 40px;
 
-				.btn-catalog{
-					//border: 1px solid red;
+				.main-catalog-categories-header{
 					display: flex;
-					align-items: center;
-					margin-right: 60px;
-					cursor: pointer;
+					margin-left: 182px;
 
-					img{
-						height: 14px;
-						margin-right: 6px;
-					}
-
-					span{
-						color: #fff;
-						font-size: 13px;
-					}
-				}
-
-				.catalog-navigation{
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					
-					p{
+					p, a{
 						color: #fff;
 						font-size: 12px;
-						padding: 3px 0;
-						margin-right: 30px;
 						text-transform: uppercase;
 						letter-spacing: 1px;
+						line-height: 1em;
+					}
+					
+					p{
+						margin-right: 30px;
 					}
 
 					a{
-						color: #fff;
-						text-transform: uppercase;
-						font-size: 12px;
 						margin-right: 34px;
-						letter-spacing: 1px;
-						line-height: 1em;
-						padding: 3px 0;		
-
-						display: flex;
-						flex-direction: column;
-						align-items: center;
-
-
-						//border-bottom: 1px solid transparent;
-						transition: border-color .2s;
 						
-						// &:last-child{
-						// 	margin-right: 0;
-						// }
-
 						&:nth-child(1){
-							//border-color: #526194;
+							
 						}
 
 						&:hover{
-							//border: 1px solid red;
-							//border-color: #247ea9;
+							
 						}
 					}
 				}

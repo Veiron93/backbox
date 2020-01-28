@@ -14,11 +14,15 @@
 				</div>
 
 				<div class="socials">
-					<div class="item">
-						<a href="">
-							<img src="" alt="">
-						</a>
-					</div>
+					<a href="" target="_blank">
+						<img src="@/assets/img/icons/social/instagram.svg" alt="">
+					</a>
+					<a href="" target="_blank">
+						<img src="@/assets/img/icons/social/instagram.svg" alt="">
+					</a>
+					<a href="" target="_blank">
+						<img src="@/assets/img/icons/social/instagram.svg" alt="">
+					</a>
 				</div>
 
 				<nav>
@@ -63,11 +67,22 @@
 			MenuCatalog: () => import('@/components/Catalog/MenuCatalog'),
 			MiniCart: () => import('@/components/MiniCart'),
 		},
+
+		data (){
+			return {
+			
+			}
+		},
+
 		props: {
 
 		},
 		methods: {
+			
+		},
 
+		created: function (){
+			//console.log(this.catalogMenu[0])
 		}
 	}
 </script>
@@ -122,6 +137,29 @@
 				.description{
 					p{
 						font-size: 13px;
+					}
+				}
+
+
+				.socials{
+					//border: 1px solid red;
+					margin-left: auto;
+					width: 200px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+
+					a{
+						margin-right: 15px;
+
+						&:last-child{
+							margin-right: 0;
+						}
+
+						img{
+							height: 20px;
+							display: block;
+						}
 					}
 				}
 

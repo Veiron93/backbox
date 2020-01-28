@@ -13,17 +13,16 @@
 
 			<div class="list-root-categories">
 				
-				<div class="root-category">
+				<div class="root-category" v-for="category in catalogMenu" v-bind:key="category.root_category.id" >
 					<div class="icon">
-						<img src="@/assets/img/icons/black-box.svg" alt="Для автомобилей" />
+						<img src="@/assets/img/icons/black-box.svg" :alt="category.root_category.name" />
 					</div>
 
 					<div class="links">
-						<router-link to="/" class="main-link">Автомобилей</router-link>
+						<router-link :to="category.root_category.id" class="main-link">{{category.root_category.name}}</router-link>
 
 						<div class="hot-sub-categories">
-							<router-link to="/">Модуляторы</router-link>
-							<router-link to="/">Модуляторы</router-link>
+							<router-link :to="hot_category.id" v-for="hot_category in category.root_category.hot_sub_categories" v-bind:key="hot_category.id">{{hot_category.name}}</router-link>
 						</div>
 					</div>
 
@@ -33,53 +32,19 @@
 					<div class="sub-categories">
 
 						<div class="column">
-							<div class="sub_category">
+							<div class="sub-category" v-for="sub_category in category.root_category.sub_categories" v-bind:key="sub_category.id">
+								
 								<div class="main-category">
 									<div class="icon">
-										<img src="@/assets/img/icons/smartphone.svg" alt />
+										<img src="@/assets/img/icons/smartphone.svg" alt="Смартфоны" />
 									</div>
-									<router-link to="/">Смартфоны</router-link>
+									<router-link to="/">{{sub_category.name}}</router-link>
 								</div>
 
 								<div class="sub">
-									<a href>Защитные стёкла</a>
-									<a href>Гидрогель плёнки</a>
-									<a href>Защитные стёкла</a>
-									<a href>Чехлы</a>
-									<a href>Защитные стёкла</a>
+									<router-link to="/" v-for="sub_category in sub_category.sub" v-bind:key="sub_category.id">{{sub_category.name}}</router-link>
 
-									<router-link to="/" class="all-categories">
-										Все категории
-										<span>></span>
-									</router-link>
-								</div>
-							</div>
-
-							<div class="sub_category">
-								<div class="main-category">
-									<div class="icon">
-										<img src="@/assets/img/icons/watch.svg" alt />
-									</div>
-									<router-link to="/">Смарт-часы</router-link>
-								</div>
-
-								<div class="sub">
-									<a href>Защитные стёкла</a>
-									<a href>Защитные стёкла</a>
-									<a href>Чехлы</a>
-								</div>
-							</div>
-
-							<div class="sub_category">
-								<div class="main-category">
-									<div class="icon">
-										<img src="@/assets/img/icons/airpods.svg" alt />
-									</div>
-									<router-link to="/">AirPods</router-link>
-								</div>
-
-								<div class="sub">
-									<a href>Чехлы</a>
+									<router-link to="/" class="all-categories" v-if="sub_category.sub.length > 6">Все категории <span>></span></router-link>
 								</div>
 							</div>
 						</div>
@@ -100,8 +65,93 @@
 
 <script>
 	export default {
-		props: {},
-		methods: {}
+		props: [],
+		methods: {},
+
+		data (){
+			return {
+				catalogMenu: [
+					{
+						root_category: {
+							id: "1",
+							name: "Автомобилей",
+							icon: "",
+
+							hot_sub_categories: [
+								{
+									id: "22",
+									name: "Модуляторы",
+								},
+								{
+									id: "332",
+									name: "Кисточки",
+								}
+							],
+
+							sub_categories: [
+								{
+									id: "5",
+									name: "Медиа",
+									icon: "",
+
+									sub: [
+										{
+											id: "44",
+											name: "Bluetooth AUX",
+										},
+										{
+											id: "23",
+											name: "AUX кабеля",
+										}
+									]
+								}
+							]
+						}
+					},
+					{
+						root_category: {
+							id: "33",
+							name: "Гаджетов",
+							icon: "",
+
+							hot_sub_categories: [
+								{
+									id: "22",
+									name: "Защитные стёкла",
+								},
+								{
+									id: "322",
+									name: "Чехлы",
+								}
+							],
+
+							sub_categories: [
+								{
+									id: "5",
+									name: "Apple Watch",
+									icon: "",
+
+									sub: [
+										{
+											id: "44",
+											name: "Защитные стёкла",
+										},
+										{
+											id: "23",
+											name: "Чехлы",
+										}
+									]
+								}
+							]
+						}
+					}
+				]
+			}
+		},
+
+		created: function(){
+			//console.log(this.catalogMenu)
+		}
 	};
 </script>
 
@@ -111,7 +161,7 @@
 		top: 0;
 		//border: 1px solid red;
 
-		&:hover>.root-categories {
+		&:hover > .root-categories {
 			display: block;
 		}
 
@@ -224,7 +274,7 @@
 						background: #fff;
 						box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.25);
 
-						//display: flex;
+						display: flex;
 
 						display: none;
 
@@ -234,7 +284,7 @@
 							width: 260px;
 							flex: none;
 
-							.sub_category {
+							.sub-category {
 								margin-bottom: 20px;
 
 								&:last-child {
@@ -298,6 +348,8 @@
 							width: 260px;
 							//border: 1px solid;
 							flex: none;
+
+							//display: none;
 
 							.item {
 								//border: 1px solid red;

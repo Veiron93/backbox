@@ -72,6 +72,7 @@
 			<div class="col-xl-3">
 				<div class="form-order">
 					<div class="delivery-section">
+						
 						<div class="title">
 							<p>Доставка</p>
 						</div>
@@ -79,23 +80,30 @@
 						<form class="list-delivery" action="">
 							<div class="item">
 								<label>
-									<input name="delivery" type="radio" value="1">
+									<input type="radio" value="1">
 									<span>Самовывоз</span>
 								</label>
 							</div>
 
 							<div class="item">
 								<label>
-									<input name="delivery" type="radio" value="2" checked>
+									<input type="radio" value="2">
 									<span>Доставка по Южно-Сахалинску</span>
 								</label>
 							</div>
 
 							<div class="item">
-								<label>
-									<input name="delivery" type="radio" value="3">
+								
+									
 									<span>Доставка по Сахалинской области в пределах 30км</span>
-								</label>
+
+									<div class="list-cities">
+										<label v-for="city in cityDelivery" v-bind:key="city.id">
+											<input type="radio" :value="city.id">
+											<span>{{city.name}} - {{city.price}}</span>
+										</label>
+									</div>
+								
 							</div>
 						</form>
 					</div>
@@ -121,7 +129,7 @@
 						<div class="list-price">
 							<div class="item delivery">
 								<p>Доставка:</p>
-								<p><span>150</span> ₽</p>
+								<p><span>{{selectDelivery}}</span> ₽</p>
 							</div>
 
 							<div class="item promocode">
@@ -142,6 +150,38 @@
 		</div>
 	</div>
 </template>
+
+
+<script>
+	// @ is an alias to /src
+
+	export default	{
+		//name: 'product',
+
+		components: {
+			
+		},
+
+		data () {
+			return {
+				selectDelivery: "",
+				cityDelivery: [
+					{"id":"1", "name": "с. Дальнее", "price": "250"},
+					{"id":"2", "name": "Луговое", "price": "300"},
+					{"id":"3", "name": "Троицкое", "price": "300"}
+				]
+			}	
+		},
+
+		methods: {
+		
+		},
+
+		mounted () {
+
+		}
+	}
+</script>
 
 
 <style lang="scss">

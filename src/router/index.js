@@ -5,6 +5,7 @@ import Cart from '../views/Cart.vue'
 
 // каталог
 import Category from '../views/Catalog/Category.vue'
+import CategoryAll from '../views/Catalog/CategoryAll.vue'
 import Product from '../views/Catalog/Product.vue'
 
 // акции
@@ -33,6 +34,11 @@ const routes = [
     path: '/cart',
     name: 'cart',
     component: Cart
+  },
+  {
+    path: '/catalog/category/all',
+    name: 'category-all',
+    component: CategoryAll
   },
   {
     path: '/catalog/category/:id',

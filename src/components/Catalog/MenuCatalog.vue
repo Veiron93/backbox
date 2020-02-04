@@ -194,7 +194,7 @@
 			position: relative;
 			z-index: 999;
 
-			//display: none;
+			display: none;
 
 			.title-root-categories {
 				margin-left: 20px;

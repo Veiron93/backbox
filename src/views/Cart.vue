@@ -78,32 +78,30 @@
 						</div>
 
 						<form class="list-delivery" action="">
+
 							<div class="item">
 								<label>
-									<input type="radio" value="1">
+									<input type="radio" value="Бесплатно" v-model="selectDelivery">
 									<span>Самовывоз</span>
 								</label>
 							</div>
 
 							<div class="item">
 								<label>
-									<input type="radio" value="2">
+									<input type="radio" value="2" v-model="selectDelivery">
 									<span>Доставка по Южно-Сахалинску</span>
 								</label>
 							</div>
 
 							<div class="item">
+								<p>Доставка по Сахалинской области в пределах 30км <img src="@/assets/img/icons/arrow-bottom-black.svg" alt=""></p>
 								
-									
-									<span>Доставка по Сахалинской области в пределах 30км</span>
-
-									<div class="list-cities">
-										<label v-for="city in cityDelivery" v-bind:key="city.id">
-											<input type="radio" :value="city.id">
-											<span>{{city.name}} - {{city.price}}</span>
-										</label>
-									</div>
-								
+								<div class="list-cities">
+									<label v-for="city in cityDelivery" v-bind:key="city.id">
+										<input type="radio" :value="city.id"  v-model="selectDelivery">
+										<span>{{city.name}} - {{city.price}}</span>
+									</label>
+								</div>
 							</div>
 						</form>
 					</div>
@@ -166,9 +164,9 @@
 			return {
 				selectDelivery: "",
 				cityDelivery: [
-					{"id":"1", "name": "с. Дальнее", "price": "250"},
-					{"id":"2", "name": "Луговое", "price": "300"},
-					{"id":"3", "name": "Троицкое", "price": "300"}
+					{"id":"22", "name": "с. Дальнее", "price": "250"},
+					{"id":"33", "name": "Луговое", "price": "300"},
+					{"id":"44", "name": "Троицкое", "price": "300"}
 				]
 			}	
 		},
@@ -388,6 +386,26 @@
 							span{
 								font-size: 13px;
 								line-height: 1.35em;
+							}
+						}
+
+						p{
+							font-size: 13px;
+							line-height: 1.35em;
+							display: flex;
+							align-items: center;
+
+							img{
+								margin-left: 5px;
+								height: 10px;
+							}
+						}
+
+						.list-cities{
+							margin-top: 10px;
+
+							label{
+								margin-bottom: 5px;
 							}
 						}
 					}

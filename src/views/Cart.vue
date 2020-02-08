@@ -77,7 +77,7 @@
 							<p>Доставка</p>
 						</div>
 
-						<form class="list-delivery" action="">
+						<form class="list-delivery">
 
 							<div class="item">
 								<label>
@@ -88,7 +88,7 @@
 
 							<div class="item">
 								<label>
-									<input type="radio" value="2" v-model="selectDelivery">
+									<input type="radio" v-bind:value="{code:'ys', price:'200'}" v-model="selectDelivery">
 									<span>Доставка по Южно-Сахалинску</span>
 								</label>
 							</div>
@@ -98,7 +98,7 @@
 								
 								<div class="list-cities">
 									<label v-for="city in cityDelivery" v-bind:key="city.id">
-										<input type="radio" :value="city.id"  v-model="selectDelivery">
+										<input type="radio" v-bind:value="{code:city.code, price:city.price}"  v-model="selectDelivery">
 										<span>{{city.name}} - {{city.price}}</span>
 									</label>
 								</div>
@@ -112,10 +112,16 @@
 						</div>
 
 						<div class="promocode-form">
-							<input name="promocode" type="text" placeholder="Введите промокод">
-							<button>
-								<img src="@/assets/img/icons/check-white.svg" alt="">
-							</button>
+							<form>
+								<input name="promocode" type="text" placeholder="Введите промокод" v-model="promocode">
+								<button>
+									<img src="@/assets/img/icons/check-white.svg" alt="">
+								</button>
+							</form>
+
+							<div v-if="infoPromocode" class="info-promocode">
+								<p>{{infoPromocode}}</p>
+							</div>
 						</div>
 					</div>
 
@@ -127,10 +133,13 @@
 						<div class="list-price">
 							<div class="item delivery">
 								<p>Доставка:</p>
-								<p><span>{{selectDelivery}}</span> ₽</p>
+								<p>
+									<span v-if="selectDelivery.code">{{selectDelivery.price}} ₽</span> 
+									<span v-else>{{selectDelivery}}</span>
+								</p>
 							</div>
 
-							<div class="item promocode">
+							<div v-if="promocode" class="item promocode">
 								<p>Промокод:</p>
 								<p><span>-350</span> ₽</p>
 							</div>
@@ -163,10 +172,17 @@
 		data () {
 			return {
 				selectDelivery: "",
+				promocode: "",
+				infoPromocode: "Промокод не активен",
 				cityDelivery: [
-					{"id":"22", "name": "с. Дальнее", "price": "250"},
-					{"id":"33", "name": "Луговое", "price": "300"},
-					{"id":"44", "name": "Троицкое", "price": "300"}
+					{"id":"22", "code":"dal", "name": "с. Дальнее", "price": "250"},
+					{"id":"33", "code":"lug", "name": "Луговое", "price": "300"},
+					{"id":"44", "code":"tro", "name": "Троицкое", "price": "300"}
+				],
+
+				promocodesTest: [
+					{"id":"1", "code":"12345", "price":"200"},
+					{"id":"2", "code":"321", "price":"100"}
 				]
 			}	
 		},
@@ -428,38 +444,50 @@
 				}
 
 				.promocode-form{
-					display: flex;
-
-					input, button{
-						outline: none;
-					}
-
-					input{
-						height: 34px;
-						font-size: 14px;
-						padding: 0px 38px 0 5px;
-						border-radius: 4px;
-						border: 1px solid rgba(168, 166, 166, 0.747);
-						background: #fff;
-						width: 100%;
-					}
-
-					button{
-						height: 26px;
-						width: 26px;
-						border-radius: 4px;
-						background: $accentHover;
-						border: none;
-						margin-top: 4px;
-						margin-left: -30px;
-						cursor: pointer;
+					form{
 						display: flex;
-						align-items: center;
-						justify-content: center;
 
-						img{
-							height: 10px;
+						input, button{
+							outline: none;
 						}
+
+						input{
+							height: 34px;
+							font-size: 14px;
+							padding: 0px 38px 0 5px;
+							border-radius: 4px;
+							border: 1px solid rgba(168, 166, 166, 0.747);
+							background: #fff;
+							width: 100%;
+						}
+
+						button{
+							height: 26px;
+							width: 26px;
+							border-radius: 4px;
+							background: $accentHover;
+							border: none;
+							margin-top: 4px;
+							margin-left: -30px;
+							cursor: pointer;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+
+							img{
+								height: 10px;
+							}
+						}
+					}
+
+					.info-promocode{
+						margin-top: 10px;
+						font-size: 14px;
+
+						p{
+							color: red;
+						}
+						
 					}
 				}	
 			}

@@ -112,15 +112,20 @@
 						</div>
 
 						<div class="promocode-form">
-							<form>
-								<input name="promocode" type="text" placeholder="Введите промокод" v-model="promocode">
-								<button>
-									<img src="@/assets/img/icons/check-white.svg" alt="">
-								</button>
+							<form v-on:submit.prevent="checkFormPromocode($event)">
+								<input 
+									name="promocode" 
+									type="text" 
+									placeholder="Введите промокод" 
+									v-model.trim="enteredPromocode"
+									:disabled="statusPromocode.disabledInput"
+								>
+
+								<button class="check"></button>
 							</form>
 
-							<div v-if="infoPromocode" class="info-promocode">
-								<p>{{infoPromocode}}</p>
+							<div v-if="statusPromocode.textError" class="info-promocode">
+								<p>{{statusPromocode.textError}}</p>
 							</div>
 						</div>
 					</div>
@@ -141,7 +146,7 @@
 
 							<div v-if="promocode" class="item promocode">
 								<p>Промокод:</p>
-								<p><span>-350</span> ₽</p>
+								<p><span>-{{promocode.price}}</span> ₽</p>
 							</div>
 
 							<div class="item total">
@@ -172,23 +177,55 @@
 		data () {
 			return {
 				selectDelivery: "",
+
+				// промокод
+				enteredPromocode: "",
 				promocode: "",
-				infoPromocode: "Промокод не активен",
+				statusPromocode: {
+					textError: "",
+					disabledInput: false
+				},
+				promocodes: [
+					{"id":"1", "code":"12345", "price":"200"},
+					{"id":"2", "code":"321", "price":"100"}
+				],
+
 				cityDelivery: [
 					{"id":"22", "code":"dal", "name": "с. Дальнее", "price": "250"},
 					{"id":"33", "code":"lug", "name": "Луговое", "price": "300"},
 					{"id":"44", "code":"tro", "name": "Троицкое", "price": "300"}
 				],
 
-				promocodesTest: [
-					{"id":"1", "code":"12345", "price":"200"},
-					{"id":"2", "code":"321", "price":"100"}
-				]
+				
 			}	
 		},
 
 		methods: {
-		
+			checkFormPromocode(event){
+
+				let buttonFormPromocode = event.currentTarget.children[1];
+
+				if(buttonFormPromocode.classList == "check"){
+					// проверка промокода
+					this.promocode = this.promocodes.find(e => e.code === this.enteredPromocode);
+
+					if(this.promocode){
+						this.statusPromocode.disabledInput = true;
+						this.statusPromocode.textError = "";
+
+						buttonFormPromocode.classList = "del";				
+					}else{
+						// сообщение если промокод не подходит
+						this.statusPromocode.textError = "Мы не нашли такого промокода";
+					}
+
+				}else if(buttonFormPromocode.classList == "del"){
+					this.enteredPromocode = "";
+					this.statusPromocode.disabledInput = false;
+
+					buttonFormPromocode.classList = "check";
+				}	
+			}
 		},
 
 		mounted () {
@@ -456,26 +493,38 @@
 							font-size: 14px;
 							padding: 0px 38px 0 5px;
 							border-radius: 4px;
-							border: 1px solid rgba(168, 166, 166, 0.747);
+							border: 1px solid #b9b9b9;
 							background: #fff;
 							width: 100%;
+
+							&:disabled{
+								border: 1px solid #dedbdb;
+								color: #dedbdb;
+							}
 						}
 
 						button{
 							height: 26px;
 							width: 26px;
 							border-radius: 4px;
-							background: $accentHover;
+							background-color: $accentHover;
 							border: none;
 							margin-top: 4px;
 							margin-left: -30px;
 							cursor: pointer;
-							display: flex;
-							align-items: center;
-							justify-content: center;
+							
+							&.check{
+								background-image: url("../assets/img/icons/check-white.svg");
+							}
 
-							img{
-								height: 10px;
+							&.del{
+								background-image: url("../assets/img/icons/close-white.svg");
+							}
+
+							&.check, &.del{
+								background-size: 50%;
+								background-repeat: no-repeat;
+								background-position: center;
 							}
 						}
 					}

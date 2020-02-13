@@ -213,7 +213,11 @@
 						this.statusPromocode.disabledInput = true;
 						this.statusPromocode.textError = "";
 
-						buttonFormPromocode.classList = "del";				
+						buttonFormPromocode.classList = "del";
+						
+						// запись в cookie
+						document.cookie = encodeURIComponent("promocode") + "=" + encodeURIComponent(this.promocode);
+
 					}else{
 						// сообщение если промокод не подходит
 						this.statusPromocode.textError = "Мы не нашли такого промокода";
@@ -230,6 +234,17 @@
 
 		mounted () {
 
+			// let name = "promocode";
+
+			// let matches = document.cookie.match(new RegExp(
+			// 	"(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+			// ));
+
+			// let test = matches ? decodeURIComponent(matches[1]) : undefined;
+
+			// if(test){
+
+			// }
 		}
 	}
 </script>

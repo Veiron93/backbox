@@ -167,6 +167,8 @@
 <script>
 	// @ is an alias to /src
 
+	import Cookies from 'js-cookie'
+
 	export default	{
 		//name: 'product',
 
@@ -181,10 +183,12 @@
 				// промокод
 				enteredPromocode: "",
 				promocode: "",
+				
 				statusPromocode: {
 					textError: "",
 					disabledInput: false
 				},
+
 				promocodes: [
 					{"id":"1", "code":"12345", "price":"200"},
 					{"id":"2", "code":"321", "price":"100"}
@@ -201,22 +205,29 @@
 		},
 
 		methods: {
-			checkFormPromocode(event){
+			activePromocode(promocode){
+
+				if(promocode){
+					this.statusPromocode.disabledInput = true;
+					this.statusPromocode.textError = "";
+					this.enteredPromocode = promocode;
+
+					document.querySelector(".promocode-form form button").classList = "del";
+				}
+			},
+
+			checkFormPromocode(event){	
 
 				let buttonFormPromocode = event.currentTarget.children[1];
 
 				if(buttonFormPromocode.classList == "check"){
+					
 					// проверка промокода
 					this.promocode = this.promocodes.find(e => e.code === this.enteredPromocode);
 
 					if(this.promocode){
-						this.statusPromocode.disabledInput = true;
-						this.statusPromocode.textError = "";
-
-						buttonFormPromocode.classList = "del";
-						
-						// запись в cookie
-						document.cookie = encodeURIComponent("promocode") + "=" + encodeURIComponent(this.promocode);
+						this.activePromocode(this.promocode.code);
+						Cookies.set('promocode', this.promocode.code)
 
 					}else{
 						// сообщение если промокод не подходит
@@ -233,18 +244,11 @@
 		},
 
 		mounted () {
-
-			// let name = "promocode";
-
-			// let matches = document.cookie.match(new RegExp(
-			// 	"(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-			// ));
-
-			// let test = matches ? decodeURIComponent(matches[1]) : undefined;
-
-			// if(test){
-
-			// }
+			let cookiesPromocode = Cookies.get('promocode');
+			
+			if(cookiesPromocode){
+				this.activePromocode(cookiesPromocode);
+			}
 		}
 	}
 </script>

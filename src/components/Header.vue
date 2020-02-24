@@ -14,14 +14,23 @@
 				</div>
 
 				<div class="socials">
-					<a href="" target="_blank">
-						<img src="@/assets/img/icons/social/instagram.svg" alt="">
+					<a href="https://market.sakh.com/s/veiron93" target="_blank" title="Sakh.com">
+						<img src="@/assets/img/icons/social/sakh-com.svg" alt="Sakh.com">
 					</a>
-					<a href="" target="_blank">
-						<img src="@/assets/img/icons/social/instagram.svg" alt="">
+					<a href="https://youla.ru/user/5b6a33d9d677505aed0896f2" target="_blank" title="Юла">
+						<img src="@/assets/img/icons/social/yula.svg" alt="Юла">
 					</a>
-					<a href="" target="_blank">
-						<img src="@/assets/img/icons/social/instagram.svg" alt="">
+					<a href="https://www.instagram.com/blackboxsakh/" target="_blank" title="Инстаграм">
+						<img src="@/assets/img/icons/social/instagram.svg" alt="Инстаграм">
+					</a>
+					<a href="https://www.instagram.com/blackboxsakh/" target="_blank" title="WhatsApp">
+						<img src="@/assets/img/icons/social/whatsapp.svg" alt="WhatsApp">
+					</a>
+					<a href="https://www.instagram.com/blackboxsakh/" target="_blank" title="Viber">
+						<img src="@/assets/img/icons/social/viber.svg" alt="Viber">
+					</a>
+					<a href="https://www.instagram.com/blackboxsakh/" target="_blank" title="Telegram">
+						<img src="@/assets/img/icons/social/telegram.svg" alt="Telegram">
 					</a>
 				</div>
 
@@ -150,7 +159,7 @@
 					justify-content: center;
 
 					a{
-						margin-right: 15px;
+						margin-right: 12px;
 
 						&:last-child{
 							margin-right: 0;

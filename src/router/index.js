@@ -12,6 +12,9 @@ import Product from '../views/Catalog/Product.vue'
 import IndexActions from '../views/Actions/Index.vue'
 import ShowActions from '../views/Actions/Show.vue'
 
+// страницы с ошибками
+import NotFound from '../views/Errors/NotFound.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -57,6 +60,14 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/Delivery.vue')
+  },
+  { 
+    path: '/404', 
+    name: '404', 
+    component: NotFound, 
+  }, { 
+    path: '*', 
+    redirect: '/404' 
   }
 ]
 
